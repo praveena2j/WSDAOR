@@ -1,0 +1,128 @@
+{
+    "source_train_dataset_params": {
+        "dataset_name": "Source_RECOLA",
+        "dataset_rootpath": "../Datasets/RECOLA/",
+        "dataset_labelpath": "../Datasets/RECOLA/",
+        "ModeofSup" : 2,
+        "ModeofData" : "Source",
+        "seq_length" : 64,
+        "stride" : 12,
+        "flag" : "train",
+        "Numofsourcetrainsubs": 18,
+        "loader_params": {
+            "batch_size": 4,
+            "shuffle": true,
+            "num_workers": 4,
+            "pin_memory": true
+        },
+        "input_size": [3,224, 224]
+    },
+
+    "source_val_dataset_params": {
+        "dataset_name": "Source_RECOLA",
+        "dataset_rootpath": "../Datasets/RECOLA/",
+        "dataset_labelpath": "../Datasets/RECOLA/",
+        "ModeofSup" : 2,
+        "ModeofData" : "Source",
+        "seq_length" : 64,
+        "stride" : 8,
+        "flag" : "val",
+        "loader_params": {
+            "batch_size": 8,
+            "shuffle": false,
+            "num_workers": 4,
+            "pin_memory": true
+        },
+        "input_size": [3,224, 224]
+    },
+
+    "target_train_dataset_params": {
+        "dataset_name": "Target_UNBC",
+        "dataset_rootpath": "../Datasets/UNBC-McMaster/Aligned-Images/",
+        "dataset_labelpath": "../Datasets/UNBC-McMaster/sublist/",
+        "ModeofSup" : 1,
+        "ModeofData" : "Target",
+        "flag" : "train",
+        "seq_length" : 64,
+        "stride" : 8,
+        "Numoftargettrainsubs": 15,
+        "loader_params": {
+            "batch_size": 2,
+            "shuffle": false,
+            "num_workers": 4,
+            "pin_memory": true
+        },
+        "input_size": [3,224, 224]
+    },
+
+    "target_val_dataset_params": {
+        "dataset_name": "Target_UNBC",
+        "dataset_rootpath": "../Datasets/UNBC-McMaster/Aligned-Images/",
+        "dataset_labelpath": "../Datasets/UNBC-McMaster/sublist/",
+        "ModeofSup" : 1,
+        "ModeofData" : "Target",
+        "flag" : "val",
+        "seq_length" : 64,
+        "stride" : 8,
+        "loader_params": {
+            "batch_size": 8,
+            "shuffle": false,
+            "num_workers": 4,
+            "pin_memory": true
+        },
+        "input_size": [3,224, 224]
+    },
+
+    "target_test_dataset_params": {
+        "dataset_name": "Target_UNBC",
+        "dataset_rootpath": "../Datasets/UNBC-McMaster/Aligned-Images/",
+        "dataset_labelpath": "../Datasets/UNBC-McMaster/sublist/",
+        "ModeofData" : "Target",
+        "seq_length" : 64,
+        "stride" : 64,
+        "flag" : "test",
+        "loader_params": {
+            "batch_size": 1,
+            "shuffle": false,
+            "num_workers": 4,
+            "pin_memory": true
+        },
+        "input_size": [3,224, 224]
+    },
+
+    "model_params": {
+        "model_name": "Inception",
+        "subject": 16,
+        "savedmodelname": "Inception_FS_SourceLabels_UDA_2LR_ce_cb_new_sig_0.2",
+        "start_epoch": 0,
+        "is_train": true,
+        "max_epochs": 30,
+        "lr": 0.001,
+        "domain_lr":0.01,
+        "export_path": "savedweights",
+        "checkpoint_path": "",
+        "learning_rate_decay_start": 15,
+        "learning_rate_decay_every": 5,
+        "learning_rate_decay_rate": 0.9,
+        "momentum": 0.9,
+        "weight-decay": 1e-5,
+        "pathtopretrainedmodel": "pretrainedweights",
+        "DA" : 2,
+        "vis_feat" : 0,
+        "MMD" : 0,
+        "domainloss_weight": 1,
+        "predloss_weight": 1,
+        "peakframe":0,
+        "Freeze" : 0
+    },
+
+    "visualization_params": {
+        "name": "PainEstimation"
+    },
+    "printout_freq": 20,
+    "model_update_freq": 1,
+    "ModeofPred" : 1,
+    "learningcurves_name" : "FullSupSource_UDA_2LR_ce_cb_new",
+    "Logfilename" : "FullSource_UDA_2LR_ce_cb_new_0.2.log",
+    "SEED" : 3
+}
