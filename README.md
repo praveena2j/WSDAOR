@@ -1,1 +1,1 @@
-# WSDAOR
+Code for our paper "Deep domain adaptation with ordinal regression for pain assessment using weakly-labeled videos" accepted to Image and Vision Computing Journal. The paper can be found at https://www.sciencedirect.com/science/article/abs/pii/S026288562100072X. The perlimiary version of the paper is accepted to FG 2020 (https://ieeexplore.ieee.org/abstract/document/9320216)
